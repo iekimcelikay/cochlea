@@ -105,11 +105,14 @@ def run_zilany2014(
     ]
 
 
-    ### Run model for each channel
-    nested = map(
-        _run_channel,
-        channel_args
-    )
+    ### Run model for each channel (original code used map)
+    #nested = map(
+    #    _run_channel,
+    #    channel_args
+    #)
+
+    # list comprehension version: (01.12.2025)
+    nested = [ _run_channel(args) for args in channel_args ]
 
 
     ### Unpack the results
