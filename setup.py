@@ -5,29 +5,11 @@ from Cython.Build import cythonize
 
 import numpy
 
-
-
 with open('README.rst') as file:
     long_description = file.read()
 
-
-
-
+# Only build zilany2014 extension
 extensions = [
-    Extension(
-        "cochlea.zilany2009._pycat",
-        [
-            "cochlea/zilany2009/_pycat.pyx",
-            "cochlea/zilany2009/catmodel.c",
-            "cochlea/zilany2009/complex.c"
-        ]
-    ),
-    Extension(
-        "cochlea.holmberg2007._traveling_waves",
-        [
-            "cochlea/holmberg2007/_traveling_waves.pyx",
-        ]
-    ),
     Extension(
         "cochlea.zilany2014._zilany2014",
         [
@@ -35,11 +17,14 @@ extensions = [
             "cochlea/zilany2014/model_IHC.c",
             "cochlea/zilany2014/model_Synapse.c",
             "cochlea/zilany2014/complex.c"
-        ]
+        ],
+        define_macros=[
+            ('NPY_NO_DEPRECATED_API', 'NPY_1_7_API_VERSION'),
+            ('CYTHON_CCOMPLEX', '0'),
+        ],
+        extra_compile_args=['-std=c99']
     ),
 ]
-
-
 
 setup(
     name = "cochlea",
@@ -55,10 +40,17 @@ setup(
     packages = find_packages(),
     scripts = ["scripts/run_zilany2014"],
     package_data = {
-        "cochlea.asr": ["*.csv"]
+        "cochlea. asr": ["*.csv"]
     },
     include_dirs = [numpy.get_include()],
-    ext_modules = cythonize(extensions),
+    ext_modules = cythonize(
+        extensions,
+        compiler_directives={
+            'language_level': '3',
+            'c_string_type': 'str',
+            'c_string_encoding': 'utf8'
+        }
+    ),
     long_description = long_description,
     classifiers = [
         "Development Status :: 5 - Production/Stable",
@@ -69,7 +61,11 @@ setup(
         "Operating System :: Microsoft :: Windows",
         "Operating System :: MacOS :: MacOS X",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3. 6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Programming Language :: Cython",
         "Programming Language :: C",
     ],

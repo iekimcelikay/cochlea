@@ -1,5 +1,5 @@
 from __future__ import division, print_function, absolute_import
-
+# cython: language_level=3
 import itertools
 import numpy as np
 import pandas as pd
@@ -63,11 +63,14 @@ def run_zilany2014_rate(
     ]
 
 
-    ### Run model for each channel
-    nested_results = map(
-        _run_channel,
-        channel_args
-    )
+    ### Run model for each channel (original code)
+    #nested_results = map(
+    #   _run_channel,
+    #   channel_args
+    #)
+
+    ## Use list comprehension (01.12.2025)
+    nested_results = [ _run_channel(args) for args in channel_args ]
 
     results = list(itertools.chain(*nested_results))
 
