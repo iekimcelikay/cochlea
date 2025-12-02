@@ -27,23 +27,23 @@ extensions = [
 ]
 
 setup(
-    name = "cochlea",
-    version = "3",
-    author = "Marek Rudnicki",
-    author_email = "marek.rudnicki@tum.de",
+    name="cochlea",
+    version="3",
+    author="Marek Rudnicki",
+    author_email="marek.rudnicki@tum.de",
 
-    description = "Inner ear models in Python",
-    license = "GPLv3+",
-    url = "https://github.com/mrkrd/cochlea",
-    download_url = "https://github.com/mrkrd/cochlea/tarball/master",
+    description="Inner ear models in Python",
+    license="GPLv3+",
+    url="https://github.com/mrkrd/cochlea",
+    download_url="https://github.com/mrkrd/cochlea/tarball/master",
 
-    packages = find_packages(),
-    scripts = ["scripts/run_zilany2014"],
-    package_data = {
-        "cochlea. asr": ["*.csv"]
+    packages=find_packages(),
+    scripts=["scripts/run_zilany2014"],
+    package_data={
+        "cochlea.asr": ["*.csv"]
     },
-    include_dirs = [numpy.get_include()],
-    ext_modules = cythonize(
+    include_dirs=[numpy.get_include()],
+    ext_modules=cythonize(
         extensions,
         compiler_directives={
             'language_level': '3',
@@ -51,12 +51,12 @@ setup(
             'c_string_encoding': 'utf8'
         }
     ),
-    long_description = long_description,
-    classifiers = [
+    long_description=long_description,
+    classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+        "License :: OSI Approved :: GNU General Public License v3 or later(GPLv3+)",
         "Operating System :: POSIX",
         "Operating System :: Microsoft :: Windows",
         "Operating System :: MacOS :: MacOS X",
@@ -70,6 +70,6 @@ setup(
         "Programming Language :: C",
     ],
 
-    platforms = ["Linux", "Windows", "FreeBSD", "OSX"],
+    platforms=["Linux", "Windows", "FreeBSD", "OSX"],
     install_requires=["numpy", "pandas", "scipy"],
 )
