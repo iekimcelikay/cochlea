@@ -126,7 +126,7 @@ _greenwood_pars  = {
 
 
 def greenwood(x, species=None, A=None, a=None, k=None):
-    '''Greenwood function.
+    """Greenwood function.
 
     Calculates the corresponding center frequency for a place on the
     basilar membrane.
@@ -152,7 +152,7 @@ def greenwood(x, species=None, A=None, a=None, k=None):
     .. [1] Greenwood, D. D. (1990). A cochlear frequency-position
     function for several species--29 years later. The Journal of the
     Acoustical Society of America, 87(6)
-    '''
+    """
     if species is not None:
         pars = _greenwood_pars[species]
 
