@@ -1,5 +1,5 @@
 # Python 3 Migration Notes
-
+Note: I'm using python 3.9.21 for this package. 
 
 THIS DOCUMENT WAS WRITTEN BY COPILOT.
 
@@ -11,13 +11,13 @@ This fork updates the cochlea package to work with Python 3.x, focusing on the `
 
 ## Installation
 
-### From GitHub (Recommended)
+### From GitHub 
 
 ```bash
 pip install git+https://github.com/iekimcelikay/cochlea.git@py3-zilany2014
 ```
 
-### From Local Repository
+### From Local Repository (RECOMMENDED)
 
 ```bash
 git clone https://github.com/iekimcelikay/cochlea.git
