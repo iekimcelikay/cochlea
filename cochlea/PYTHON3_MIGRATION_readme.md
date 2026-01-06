@@ -14,13 +14,13 @@ This fork updates the cochlea package to work with Python 3.x, focusing on the `
 ### From GitHub (Recommended)
 
 ```bash
-pip install git+https://github.com/YOUR_USERNAME/cochlea.git@py3-zilany2014
+pip install git+https://github.com/iekimcelikay/cochlea.git@py3-zilany2014
 ```
 
 ### From Local Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/cochlea.git
+git clone https://github.com/iekimcelikay/cochlea.git
 cd cochlea
 git checkout py3-zilany2014
 pip install -e .
